@@ -1,6 +1,7 @@
 // DOM Elements
 const modal = document.querySelector(".modal-overlay");
 const modalBtn = document.querySelectorAll(".modal-btn");
+const closeBtn = document.querySelectorAll(".btn-close");
 const formData = document.querySelectorAll(".formData");
 
 var editNav = () => {
@@ -12,13 +13,17 @@ var editNav = () => {
     }
 }
 
-
-// launch modal event
-modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
-
 // launch modal form
-function launchModal() {
+const launchModal = () =>{
   modal.style.display = "block";
 }
+
+//close modal form
+const closeModal = () =>{
+  modal.style.display = "none";
+}
+// launch modal event
+modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
+closeBtn.forEach((closeBtn) => closeBtn.addEventListener("click", closeModal));
 
 

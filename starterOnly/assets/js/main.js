@@ -1,29 +1,34 @@
 // DOM Elements
-const modal = document.querySelector(".modal-overlay");
-const modalBtn = document.querySelectorAll(".modal-btn");
-const closeBtn = document.querySelectorAll(".btn-close");
-const formData = document.querySelectorAll(".formData");
+const modal = document.querySelector(".modal-overlay"); // Élément de la modale à afficher/masquer
+const modalBtn = document.querySelectorAll(".modal-btn"); // Boutons pour ouvrir la modale
+const closeBtn = document.querySelectorAll(".btn-close"); // Boutons pour fermer la modale
+const topNav = document.getElementById("myTopnav"); // Barre de navigation principale
 
-var editNav = () => {
-     var topNav = document.getElementById("myTopnav");
-    if (topNav.className === "topnav") {
-      topNav.className += " responsive";
-    } else {
-      topNav.className = "topnav";
-    }
-}
+/**
+ * Gère le mode responsive de la barre de navigation.
+ * Ajoute ou retire la classe "responsive" en fonction de l'état actuel de la barre.
+ */
+const editNav = () => {
+  topNav.className === "topnav" ? topNav.className += " responsive" : topNav.className = "topnav";
+};
 
-// launch modal form
-const launchModal = () =>{
+/**
+ * Affiche la modale en modifiant le style display
+ */
+const launchModal = () => {
   modal.style.display = "block";
-}
+};
 
-//close modal form
-const closeModal = () =>{
+/**
+ * Ferme la modale en modifiant le style display
+ */
+const closeModal = () => {
   modal.style.display = "none";
-}
-// launch modal event
-modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
-closeBtn.forEach((closeBtn) => closeBtn.addEventListener("click", closeModal));
+};
 
+// Modal event listeners
+// Ajoute un événement "click" à chaque bouton d'ouverture de la modale pour afficher la modale.
+modalBtn.forEach(btn => btn.addEventListener("click", launchModal));
 
+// Ajoute un événement "click" à chaque bouton de fermeture pour masquer la modale.
+closeBtn.forEach(closeBtn => closeBtn.addEventListener("click", closeModal));

@@ -32,6 +32,14 @@ img {
   padding-right: 1rem;
 }
 
+.hidden{
+  display: none;
+}
+
+.visible{
+  display: block;
+}
+
 .topnav {
   overflow: hidden;
   margin: 3.5%;
@@ -160,6 +168,14 @@ main {
   margin: 15px auto;
 }
 
+.form-success{
+  text-align: center;
+  font-size:18px;
+  background: #279e7a;
+  color: #fff;
+  padding: 10px 20px;
+}
+
 label {
   font-family: var(--font-default);
   font-size: 17px;
@@ -185,12 +201,11 @@ input {
 
 .formData[data-error]::after {
   content: attr(data-error);
-  font-size: 0.4em;
+  font-size: 0.5em;
   color: #e54858;
   display: block;
-  margin-top: 7px;
-  margin-bottom: 7px;
-  text-align: right;
+  margin-top: 10px;
+  text-align: left;
   line-height: 0.3;
   opacity: 0;
   transition: 0.3s;
@@ -399,7 +414,6 @@ input[data-error]::after {
 }
 
 .hero-section {
-  min-height: 93vh;
   border-radius: 10px;
   display: grid;
   grid-template-columns: repeat(12, 1fr);

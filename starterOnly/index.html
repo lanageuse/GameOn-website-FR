@@ -53,7 +53,8 @@
       <div class="content">
         <span class="close btn-close"></span>
         <div class="modal-body">
-          <form name="reserve" action="index.html" method="get" onsubmit="return validate();">
+          <form id="formReserve" name="reserve" action="index.html" method="post">
+            <div class="form-success hidden">Votre formulaire a été envoyé avec succès !</div>
             <div class="formData">
               <label for="first" class="text-label">Prénom</label><br>
               <input class="text-control" type="text" id="first" name="first" minlength="2" /><br>
@@ -103,12 +104,14 @@
             </div>
 
             <div class="formData">
-              <input class="checkbox-input" type="checkbox" id="checkbox1" checked />
+              <input class="checkbox-input" type="checkbox" id="checkbox1" name="policy" checked />
               <label class="checkbox2-label" for="checkbox1" required>
                 <span class="checkbox-icon"></span>
                 J'ai lu et accepté les conditions d'utilisation.
               </label>
               <br>
+            </div>
+            <div class="formData">
               <input class="checkbox-input" type="checkbox" id="checkbox2" />
               <label class="checkbox2-label" for="checkbox2">
                 <span class="checkbox-icon"></span>
@@ -128,6 +131,7 @@
     </p>
   </footer>
   <script src="./assets/js/main.js"></script>
+  <script src="./assets/js/form.js" type="module"></script>
 </body>
 
 </html>

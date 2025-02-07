@@ -53,15 +53,18 @@
       <div class="content">
         <span class="close btn-close"></span>
         <div class="modal-body">
+          <div class="form-success hidden">
+            <p class="sucess-message">Merci pour votre inscription</p>
+            <button class="btn-submit btn-close">Fermer</button>
+          </div>
           <form id="formReserve" name="reserve" action="index.html" method="post">
-            <div class="form-success hidden">Votre formulaire a été envoyé avec succès !</div>
             <div class="formData">
-              <label for="first" class="text-label">Prénom</label><br>
-              <input class="text-control" type="text" id="first" name="first" minlength="2" /><br>
+              <label for="firstname" class="text-label">Prénom</label><br>
+              <input class="text-control" type="text" id="firstname" name="firstname" minlength="2" /><br>
             </div>
             <div class="formData">
-              <label for="last" class="text-label">Nom</label><br>
-              <input class="text-control" type="text" id="last" name="last" /><br>
+              <label for="lastname" class="text-label">Nom</label><br>
+              <input class="text-control" type="text" id="lastname" name="lastname" /><br>
             </div>
             <div class="formData">
               <label for="email" class="text-label">E-mail</label><br>
@@ -72,7 +75,8 @@
               <input class="text-control" type="date" id="birthdate" name="birthdate" /><br>
             </div>
             <div class="formData">
-              <label for="quantity" class="text-label">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
+              <label for="quantity" class="text-label">À combien de tournois GameOn avez-vous déjà participé
+                ?</label><br>
               <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
             </div>
             <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>

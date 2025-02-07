@@ -12,11 +12,11 @@ const form = document.getElementById('formReserve'); //Élément du formulaire p
  * @type {FieldValidator[]}
  */
 const validators = [
-    new FieldValidator("first",
+    new FieldValidator("firstname",
         [
             new MinLengthRule(2, "Vous devez saisir au minimum 2 caractères")
         ]),
-    new FieldValidator("last",
+    new FieldValidator("lastname",
         [
             new MinLengthRule(2, "Vous devez saisir au minimum 2 caractères")
         ]),
@@ -50,7 +50,7 @@ form.querySelectorAll("input").forEach((field) => {
     field.addEventListener("input", (e) => {
         const value = e.target.value; // Valeur actuelle du champ
         const fieldName = e.target.name; // Nom du champ (attribut `name`)
-        
+
         // Recherche du validateur correspondant au champ
         const fieldValidator = validators.find(validator => validator.fieldName === fieldName);
 
@@ -67,12 +67,14 @@ form.querySelectorAll("input").forEach((field) => {
  * Si le formulaire contient des erreurs, on empêche la soumission et on affiche les messages d'erreur.
  */
 form.addEventListener("submit", (e) => {
-    e.preventDefault(); 
+    e.preventDefault();
 
     let isValidate = true; // Variable pour suivre l'état de validation du formulaire
 
     // Récupère les données du formulaire sous forme d'objet clé/valeur
     const formSubmit = new FormData(e.target);
+
+    // Convertit formSubmit en objet clé/valeur pour une manipulation plus simple
     const formData = Object.fromEntries(formSubmit.entries());
 
     // Valide chaque champ avec son validateur associé
@@ -91,6 +93,10 @@ form.addEventListener("submit", (e) => {
     // Si tout est valide, affiche un message de succès
     if (isValidate) {
         showSucessMessage(form);
+        console.log(formSubmit);
+        formSubmit.forEach((value, key) => {
+            console.log(`Key: ${key}, Value: ${value}`);
+        });
     }
 });
 
@@ -125,21 +131,21 @@ export const ErrorMessage = (errorMessage, field) => {
  * @param {HTMLFormElement} form - Le formulaire à réinitialiser après soumission.
  */
 export const showSucessMessage = (form) => {
+    // Sélectionne l'élément qui affiche le message de succés
+    const successMessage = document.querySelector('.form-success');
     // Réinitialise le formulaire pour effacer les données saisies
     form.reset();
-
-    // Sélectionne l'élément de message de succès
-    const successMessage = document.querySelector('.form-success');
+    form.style.display = 'none'
 
     // Rendre le message de succès visible
-    successMessage.classList.remove('hidden');
-    successMessage.classList.add('visible');
+    successMessage.style.display = 'flex'
 
     // Masque le message et ferme la modale après 5 secondes
     setTimeout(() => {
         closeModal(); // Appelle une fonction externe pour fermer la modale
-        successMessage.classList.remove('visible');
+        successMessage.style.display = 'none'
         successMessage.classList.add('hidden');
+        form.style.display = 'block'
     }, 5000);
 };
 

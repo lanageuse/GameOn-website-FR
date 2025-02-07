@@ -166,14 +166,22 @@ main {
 .modal-body {
   padding: 15px 8%;
   margin: 15px auto;
+  min-height: 70vh;
 }
 
 .form-success{
+  flex-direction: column;
+  min-height: 73vh;
   text-align: center;
-  font-size:18px;
-  background: #279e7a;
-  color: #fff;
-  padding: 10px 20px;
+}
+
+.form-success .sucess-message{
+  flex: 1;
+  font-size:36px;
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 label {

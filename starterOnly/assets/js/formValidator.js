@@ -66,7 +66,7 @@ export class MinLengthRule extends FieldRuleValidator {
         this.minLength = minLength
     }
     /**
-     * Valide que la valeur est bien un email en utilisant un regex de validation.
+     * Valide que la valeur a bien le nombre caractère requis
      * @param {string} value - La valeur à valider.
      * @returns {boolean} Retourne `true` si la valeur est valide, sinon `false`.
      */
@@ -116,6 +116,6 @@ export class FieldValidator {
                 return rule.errorMessage;
             }
         }
-        return null; // Aucun problème
+        return null;
     }
 }

@@ -140,12 +140,12 @@ export const showSucessMessage = (form) => {
     // Rendre le message de succès visible
     successMessage.style.display = 'flex'
 
-    // Masque le message et ferme la modale après 5 secondes
+    // // Masque le message et ferme la modale après 2 secondes
     setTimeout(() => {
         closeModal(); // Appelle une fonction externe pour fermer la modale
         successMessage.style.display = 'none'
         successMessage.classList.add('hidden');
         form.style.display = 'block'
-    }, 5000);
+    }, 2000);
 };
 
